@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Menu Overview</title>
+    <style>
+      body {
+        font-family: "Roboto", Arial, sans-serif;
+        margin: 0;
+        padding: 0;
+        background-color: #f9f9f9;
+      }
+
+      h1 {
+        text-align: center;
+        font-size: 2em;
+        margin: 20px 0;
+        color: #333;
+      }
+
+      ul {
+        list-style-type: none;
+        padding: 0;
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 20px;
+      }
+
+      li {
+        border: 1px solid #ddd;
+        border-radius: 10px;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        background-color: #fff;
+        padding: 20px;
+        max-width: 220px;
+        flex: 1 1 220px;
+        text-align: center;
+        box-sizing: border-box;
+        transition: transform 0.2s, box-shadow 0.2s;
+      }
+
+      li:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+      }
+
+      img {
+        max-width: 100%;
+        border-radius: 10px;
+        margin-bottom: 10px;
+      }
+
+      h2 {
+        font-size: 1.2em;
+        color: #555;
+        margin: 10px 0;
+      }
+
+      p {
+        font-size: 1em;
+        margin: 5px 0;
+        color: #777;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>Food Categories</h1>
+    <ul>
+      <% categories.forEach(category => { %>
+      <li>
+        <img src="<%= category.img %>" alt="<%= category.name %>" />
+        <h2><%= category.name %></h2>
+      </li>
+      <% }) %>
+    </ul>
+
+    <h1>Food Items</h1>
+    <ul>
+      <% foods.forEach(food => { %>
+      <li>
+        <img src="<%= food.img %>" alt="<%= food.name %>" />
+        <h2><%= food.name %></h2>
+        <p>Price: <%= food.price %> $</p>
+        <p><%= food.address %></p> <!-- Hiển thị địa chỉ nếu có -->
+      </li>
+      <% }) %>
+    </ul>
+  </body>
+</html>
